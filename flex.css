@@ -1,0 +1,824 @@
+body {
+  font-family: "Mycustomfont", Source Sans Pro;
+  overflow-x: hidden;
+}
+
+@font-face {
+  font-family: "Mycustomfont";
+  src: url("/flex/SourceSans3-Regular.ttf");
+}
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+:root {
+  --bar-width:40px;
+  --bar-height:4px;
+  --hamburger-gap:8px;
+  --foreground:#333;
+  background-color: white;
+  --hamburger-margin:10px;
+  --animation-timing: 200ms ease-in-out;
+  --hamburger-height: calc(var(--bar-height) * 3 + var
+  (--hamburger-gap) * 2);
+}
+
+#links {
+  display: none;
+}
+
+.hamburger-menu {
+  display: flex;
+  flex-direction: column;
+  gap: var(--hamburger-gap);
+  align-items: center;
+  position: absolute;
+  top: var(--hamburger-margin);
+  right: var(--hamburger-margin);
+  z-index: 2;
+  cursor: pointer;
+}
+
+.hamburger-menu.hamburger-menu:has(input:checked) {
+  --foreground:white;
+  --background:#333;
+}
+
+.hamburger-menu:has(input:focus-visible)::before,
+.hamburger-menu.hamburger-menu:has(input:focus-visible)::after,
+.hamburger-menu.hamburger-menu input:focus-visible {
+  border: 1px solid var(--background);
+  box-shadow: 0 0 0 1px var(--foreground);
+}
+
+.hamburger-menu::before,
+.hamburger-menu::after,
+.hamburger-menu input {
+  content: "";
+  width: var(--bar-width);
+  height: var(--bar-height);
+  background-color: var(--foreground);
+  border-radius: 9999px;
+  transition: opacity var(--animation-timing), width var(--animation-timing), rotate var(--animation-timing) translate var(--animation-timing), background-color var(--animation-timing);
+  transform-origin: left center;
+}
+
+.hamburger-menu input {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  padding: 0;
+  margin: 0;
+  outline: none;
+  pointer-events: none;
+  padding: 0;
+}
+
+.hamburger-menu:has(input:checked)::before {
+  rotate: 45deg;
+  translate: 0 calc(var(--bar-height) / -2);
+}
+
+.hamburger-menu:has(input:checked)::after {
+  rotate: -45deg;
+  translate: 0 calc(var(--bar-height) / 2);
+}
+
+.hamburger-menu input:checked {
+  opacity: 0;
+  width: 0;
+}
+
+.sidebar {
+  opacity: 80%;
+  transition: translate var(--animation-timing);
+  translate: -100%;
+  margin-top: -335px;
+  margin-left: -1060px;
+  background-color: var(--foreground);
+  color: var(--background);
+  width: 152rem;
+  height: 180vh;
+}
+.sidebar nav {
+  color: white;
+  font-size: 36px;
+  padding: 20px;
+  margin-top: 20px;
+  position: absolute;
+  top: var(--hamburger-margin);
+  right: var(--hamburger-margin);
+}
+.sidebar nav:hover {
+  background-color: #e5b21b;
+  padding: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 50px;
+  border-radius: 50%;
+  color: var(--foreground);
+}
+
+.hamburger-menu:has(input:checked) + .sidebar {
+  translate: 0;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  color: black;
+}
+
+.sidebar nav {
+  color: white;
+  font-size: 43px;
+  padding: 20px;
+  margin-top: 116px;
+  position: absolute;
+  top: var(--hamburger-margin);
+  margin-right: 260px;
+  right: var(--hamburger-margin);
+}
+
+.banner {
+  background-image: url("bg-masthead.jpg");
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 92vh;
+  background-position: left center;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 1px;
+}
+.banner .sty {
+  margin-top: 160px;
+}
+.banner .sty p {
+  margin-left: 32px;
+}
+.banner .sty .button1 {
+  margin-left: 74px;
+  border: none;
+}
+
+h1 {
+  font-size: 54px;
+}
+
+p {
+  font-weight: bold;
+}
+
+.button1 {
+  background-color: #1d809f;
+  color: antiquewhite;
+  padding: 15px;
+  font-size: large;
+  font-weight: bolder;
+  border-radius: 4px 4px 4px 4px;
+  margin-top: 25px;
+  border-color: #1d809f;
+  width: 170px;
+}
+
+.button2 {
+  background-color: #050505;
+  padding: 20px;
+  color: white;
+  font-size: small;
+  font-weight: bolder;
+  border-radius: 4px 4px 4px 4px;
+  margin-top: 35px;
+  width: 170px;
+  border: none;
+}
+
+.button3 {
+  background-color: #1d809f;
+  border-color: #1d809f;
+  padding: 20px;
+  color: white;
+  font-size: small;
+  font-weight: bolder;
+  border-radius: 4px 4px 4px 4px;
+  margin-top: 35px;
+  width: 170px;
+  border: none;
+}
+
+.button4 {
+  background-color: white;
+  padding: 20px;
+  border-color: white;
+  color: #212529;
+  font-size: larger;
+  border-radius: 4px 4px 4px 4px;
+  margin-top: 35px;
+  border: none;
+}
+
+.button5 {
+  background-color: #212529;
+  padding: 20px;
+  color: white;
+  font-size: larger;
+  border-radius: 4px 4px 4px 4px;
+  margin-left: 10px;
+  border: none;
+}
+
+.main-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 40px;
+}
+
+h4 {
+  font-weight: bolder;
+  font-size: 28px;
+  margin: 5px;
+}
+
+.Candy {
+  background-color: #1d809f;
+  padding-bottom: 60px;
+  margin-top: 50px;
+}
+
+.Services {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 65px;
+  flex-direction: column;
+  color: white;
+}
+.Services h2 {
+  font-size: 36px;
+}
+
+h6 {
+  color: #e5b21b;
+  margin-top: 80px;
+}
+
+.boxes {
+  display: flex;
+  font-size: 8px;
+  font-weight: lighter;
+  margin-top: 40px;
+  color: white;
+  justify-content: space-evenly;
+  margin-right: 80px;
+  margin-left: 80px;
+}
+
+h5 {
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.Cheesy {
+  background-image: url("bg-callout.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: right;
+  height: 104vh;
+  width: 100%;
+  padding-top: 80px;
+  padding-bottom: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.Cheesy h2 {
+  font-size: 36px;
+}
+
+.Portfolio {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 10px;
+  padding-bottom: 5px;
+  margin-top: 5px;
+}
+.Portfolio h2 {
+  font-size: 36px;
+}
+
+.box5 {
+  background-image: url("portfolio-1.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 50%;
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.box6 {
+  background-image: url("portfolio-2.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 50%;
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.box7 {
+  background-image: url("portfolio-3.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 50%;
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.box8 {
+  background-image: url("portfolio-4.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 50%;
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.Jesus {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  color: white;
+  padding: 5px;
+  margin: 65px;
+  flex-direction: row;
+}
+
+.treehouse {
+  background-color: #1d809f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: white;
+  padding: 50px;
+}
+.treehouse p {
+  font-size: 25px;
+}
+
+.hello {
+  padding: 25px;
+  margin-top: -50px;
+}
+
+.LOVO {
+  background-image: url("Screenshot 2024-04-05 110452.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100%;
+  height: 70vh;
+}
+
+.material-symbols-outlined {
+  color: #1d809f;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  padding: 20px;
+  border-radius: 50%;
+}
+
+i {
+  color: white;
+  background-color: #1d809f;
+  border-radius: 50%;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  padding: 40px;
+}
+.footer i {
+  margin-left: 50px;
+}
+
+.feet {
+  text-align: center;
+  padding-bottom: 40px;
+  margin-left: 64px;
+}
+
+.box1 {
+  text-align: center;
+  margin-left: 15px;
+  margin: 5px;
+}
+
+.box2 {
+  text-align: center;
+  margin-left: 15px;
+  margin: 5px;
+}
+
+.box3 {
+  text-align: center;
+  margin-left: 15px;
+  margin: 5px;
+}
+
+.box4 {
+  text-align: center;
+  margin-left: 15px;
+  margin: 5px;
+}
+
+.copy {
+  font-weight: lighter;
+  margin-top: 60px;
+  margin-left: 700px;
+}
+
+@media (max-width: 576px) {
+  body {
+    overflow-x: hidden;
+  }
+  .banner {
+    height: 73vh;
+  }
+  .banner h1 {
+    margin-left: 58px;
+    font-size: 48px;
+  }
+  .banner .button1 {
+    padding: 10px;
+    width: 100px;
+    margin-left: 5px;
+  }
+}
+@media (max-width: 375px) {
+  .sidebar nav {
+    color: white;
+    font-size: 43px;
+    padding: 20px;
+    margin-top: 116px;
+    position: absolute;
+    top: var(--hamburger-margin);
+    margin-right: 46px;
+    right: var(--hamburger-margin);
+  }
+  .banner {
+    height: 86vh;
+  }
+  .banner .button1 {
+    padding: 9px;
+    font-size: 12px;
+    margin-left: 40px;
+  }
+  .banner h1 {
+    font-size: 25px;
+  }
+  .banner p {
+    font-size: 12px;
+  }
+  .banner .sty {
+    margin-right: 19px;
+    margin-top: 301px;
+  }
+  .banner .sidebar {
+    margin-left: -80px;
+    margin-top: -414px;
+    width: 458px;
+  }
+  .banner nav {
+    padding-left: 190px;
+  }
+  .main-content h4 {
+    font-size: 13px;
+    text-align: center;
+  }
+  .main-content P {
+    font-size: 9px;
+    text-align: center;
+    margin: 2px;
+  }
+  .main-content .button2 {
+    padding: 8px;
+    font-size: 12px;
+    width: 100px;
+  }
+  .Candy .Services {
+    margin-top: 5px;
+  }
+  .Candy h2 {
+    font-size: 20px;
+  }
+  .Candy .boxes {
+    margin-top: 4px;
+    margin: 5px;
+    margin-left: 7px;
+  }
+  .Candy .boxes .box1 {
+    margin: 39px;
+    font-size: 14px;
+  }
+  .Candy .boxes .box2 {
+    margin: 39px;
+    font-size: 14px;
+  }
+  .Candy .boxes .box3 {
+    margin: 39px;
+    font-size: 14px;
+  }
+  .Candy .boxes .box4 {
+    margin: 39px;
+    font-size: 14px;
+  }
+  .Candy h5 {
+    font-size: 12px;
+  }
+  .Cheesy {
+    height: 33vh;
+  }
+  .Cheesy h2 {
+    font-size: 18px;
+  }
+  .Cheesy .button3 {
+    padding: 6px;
+    width: 101px;
+    font-size: 12px;
+  }
+  .hie {
+    font-size: 8px;
+  }
+  .hie .Jesus {
+    flex-direction: column;
+    padding: 0px;
+    margin: 2px;
+    position: relative;
+    right: 172px;
+  }
+  .hie .Jesus .box5 {
+    width: 67%;
+  }
+  .hie .Jesus .box5 h5 {
+    font-size: 9px;
+  }
+  .hie .Jesus .box5 p {
+    font-size: 8px;
+  }
+  .hie .Jesus .box6 {
+    width: 67%;
+    margin-top: 12px;
+  }
+  .hie .Jesus .box6 h5 {
+    font-size: 12px;
+  }
+  .hie .Jesus .box6 p {
+    font-size: 8px;
+  }
+  .hie .Jesus .box7 {
+    width: 67%;
+    margin-top: 12px;
+  }
+  .hie .Jesus .box7 h5 {
+    font-size: 12px;
+  }
+  .hie .Jesus .box7 p {
+    font-size: 8px;
+  }
+  .hie .Jesus .box8 {
+    width: 67%;
+    margin-top: 12px;
+  }
+  .hie .Jesus .box8 h5 {
+    font-size: 12px;
+  }
+  .hie .Jesus .box8 p {
+    font-size: 12px;
+  }
+  .hie .box5 {
+    height: 28vh;
+  }
+  .hie .box6 {
+    height: 28vh;
+  }
+  .hie .box7 {
+    height: 28vh;
+  }
+  .hie .box8 {
+    height: 28vh;
+  }
+  .treehouse {
+    margin-top: 25px;
+  }
+  .treehouse p {
+    font-size: 14px;
+  }
+  .treehouse .button4 {
+    padding: 5px;
+    font-size: 12px;
+  }
+  .treehouse .button5 {
+    padding: 5px;
+    font-size: 12px;
+  }
+  .LOVO {
+    height: 42vh;
+  }
+  .footer {
+    padding: 5px;
+  }
+  .footer i {
+    padding: 20px;
+  }
+  .feet {
+    font-size: 9px;
+    margin-left: -1px;
+  }
+  .feet p {
+    font-size: 8px;
+  }
+  .Portfolio {
+    margin-top: -44px;
+  }
+  .Portfolio h2 {
+    font-size: 20px;
+  }
+  .hie .Jesus {
+    margin-top: 18px;
+    position: relative;
+    left: 5px;
+  }
+  .footer {
+    margin-right: 25px;
+  }
+  .contact .con {
+    width: 183px;
+  }
+  .Candy .boxes {
+    margin-left: 7px;
+    flex-direction: column;
+  }
+  .about .para2 {
+    width: 300px;
+  }
+  .about .para3 {
+    width: 300px;
+  }
+}
+@media screen and (min-width: 577px) and (max-width: 910px) {
+  .banner {
+    height: 65vh;
+  }
+  .banner .sty .button1 {
+    margin-left: 111px;
+  }
+  .banner .sty {
+    margin-top: 350px;
+  }
+  .banner h1 {
+    font-size: 60px;
+  }
+  .banner p {
+    font-size: 20px;
+  }
+  .banner .sidebar {
+    width: 785px;
+    margin: -545px;
+  }
+  .Cheesy {
+    height: 40vh;
+  }
+  .hie .Jesus {
+    margin: 41px;
+  }
+  .LOVO {
+    height: 32vh;
+  }
+  .Portfolio {
+    padding: 0;
+  }
+  .box5 {
+    height: 29vh;
+  }
+  .box6 {
+    height: 29vh;
+  }
+  .box7 {
+    height: 29vh;
+  }
+  .box8 {
+    height: 29vh;
+  }
+  .feet p {
+    margin-left: 0px;
+  }
+}
+@media screen and (min-width: 912px) and (max-width: 1024px) {
+  .banner {
+    height: 36vh;
+  }
+  .banner .sidebar {
+    width: 130rem;
+  }
+  .banner .sty {
+    margin-top: 140px;
+    margin-left: 41px;
+  }
+  .banner .sty h1 {
+    font-size: 40px;
+  }
+  .banner .sty p {
+    font-size: 13px;
+  }
+  .banner .sty .button1 {
+    margin-left: 62px;
+    width: 159px;
+  }
+  .main-content .button2 {
+    width: 159px;
+  }
+  .hie {
+    margin: 35px;
+  }
+  .hie .Jesus {
+    flex-wrap: wrap-reverse;
+    margin: -2px;
+    margin-top: -11px;
+    padding: 63px;
+  }
+  .Cheesy {
+    height: 502px;
+  }
+  .Cheesy .button3 {
+    width: 159px;
+  }
+  .LOVO {
+    height: 36vh;
+  }
+  .Portfolio {
+    padding: 0;
+  }
+  .box5 {
+    height: 29vh;
+  }
+  .box6 {
+    height: 29vh;
+  }
+  .box7 {
+    height: 29vh;
+  }
+  .box8 {
+    height: 29vh;
+  }
+  .footer {
+    padding: 9px;
+  }
+  .treehouse {
+    margin-top: 55px;
+  }
+}/*# sourceMappingURL=flex.css.map */
