@@ -1,5 +1,5 @@
 body{
-    font-family: "Mycustomfont";
+    font-family: "Mycustomfont",Source Sans Pro;
     overflow-x: hidden;
 }
 
@@ -11,7 +11,7 @@ $primary:black;
 //import font
 @font-face {
     font-family: "Mycustomfont";
-    src:url("SourceSans3-Regular.ttf");
+    src:url("/flex/SourceSans3-Regular.ttf");
 }
 // body{
 //     overflow-x: hidden;
