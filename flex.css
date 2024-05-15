@@ -1,11 +1,11 @@
 body {
-  font-family: "Mycustomfont", Source Sans Pro;
+  font-family: "Mycustomfont";
   overflow-x: hidden;
 }
 
 @font-face {
   font-family: "Mycustomfont";
-  src: url("/flex/SourceSans3-Regular.ttf");
+  src: url("SourceSans3-Regular.ttf");
 }
 *,
 *::after,
